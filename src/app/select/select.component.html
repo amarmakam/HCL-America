@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+    <mat-label id="mat-label">{{dropdownLabel}}</mat-label>
+    <mat-select [disabled]="isDisabled" (selectionChange)="valueChange($event)" id="mat-select">
+        <mat-option *ngFor="let option of options" [value]="option.id">
+            {{option.value}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

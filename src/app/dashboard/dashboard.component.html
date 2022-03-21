@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-center">
+        <div class="ms-5">
+            <app-select [dropdownLabel]="regionTitle" [options]="regionOptions" (selectionChangeEvent)="regionChange($event)"></app-select>
+        </div>
+
+        <div class="ms-5">
+            <app-select [dropdownLabel]="countryTitle" [options]="countriesOptions" (selectionChangeEvent)="countryChange($event)"></app-select>
+        </div>
+
+        <div class="ms-5 mt-2">
+            <button mat-raised-button color="primary" (click)="loadCountry()" [disabled]="selectedCountry === ''">Load Countries</button>
+        </div>
+    </div>
+    <div class="mt-5" *ngIf="tableContent.length > 0">
+       <app-table-content [dataSource]="tableContent"></app-table-content>
+    </div>
+</div>
