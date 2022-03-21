@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -10,9 +10,15 @@ export class TableContentComponent implements OnInit {
   displayedColumns: string[] = ['currencies', 'name', 'population', 'capital', 'flag'];
   @Input()
   dataSource = [];
+  
+  @Output()
+  rowClickEvent: EventEmitter<any> = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {
+  }
+  navigateToDisplayContent(row: any){
+    this.rowClickEvent.emit(row);
   }
 
 }

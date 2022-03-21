@@ -13,6 +13,6 @@
         </div>
     </div>
     <div class="mt-5" *ngIf="tableContent.length > 0">
-       <app-table-content [dataSource]="tableContent"></app-table-content>
+       <app-table-content [dataSource]="tableContent" (rowClickEvent)="rowClickEvent($event)"></app-table-content>
     </div>
 </div>

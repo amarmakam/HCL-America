@@ -26,5 +26,5 @@
       </ng-container>
     
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"  id="values"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"  id="values" (click)="navigateToDisplayContent(row)"></tr>
   </table>

@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { IOptions } from '../select/select.component';
 import { DashboardService } from './dashboard.service';
 import { fetchContriesRequest } from '../store/dashboard/dashboard.actions';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -25,7 +26,7 @@ export class DashboardComponent implements OnInit {
   selectedCountry = '';
   selectedRegion = '';
   storedRegion = '';
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<any>, private router: Router) {
     this.store.select(state => state.dashboardReducer).subscribe((res: any) => {
       if (this.selectedRegion) {
         if (!res.isLoading && !res.isError) {
@@ -61,6 +62,12 @@ export class DashboardComponent implements OnInit {
     } else {
       this.tableContent = [];
     }
+  }
+  rowClickEvent(row: any) {
+    this.router.navigate(['display-content'], {
+      queryParams: row
+    })
+
   }
 
 }
